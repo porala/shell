@@ -1,0 +1,8 @@
+for line in $(cat /etc/passwd);
+do
+echo $line
+done
+
+
+
+while read line; do echo $line; done < /etc/passwd

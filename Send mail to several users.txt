@@ -1,0 +1,7 @@
+#!/bin/bash
+for name in login1 login2 login3
+do
+mailx -s 'hi there' $name << EOF
+Hi $name, meet me at the water fountain
+EOF
+done

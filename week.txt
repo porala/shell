@@ -1,0 +1,14 @@
+#bash
+
+read week
+case `expr $week % 7` in
+
+0) echo sun;;
+1) echo mon;;
+2) echo tue;;
+3) echo wed;;
+4) echo thu;;
+5) echo fri;;
+6) echo sat;;
+
+esac

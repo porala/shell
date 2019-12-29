@@ -1,0 +1,19 @@
+# Determine the Solaris boot disk in cxtxdx format.
+BOOTPATH=`prtconf -pv | grep bootpath | tr -d "'" | awk '{print $2}'`
+
+if [ -n "`echo $BOOTPATH | grep "/disk"`" ] ; then
+   # The bootpath contains "disk," but the /devices block device contains
+   # either "sd" or "ssd"
+   BOOTPATH=`echo $BOOTPATH | sed 's/disk@//'`
+   BOOT_DISK=`ls -l /dev/dsk | sed -e 's/ssd@//' -e 's/sd@//' \
+   | grep "$BOOTPATH" 2>/dev/null | awk '{print $9}' | sed 's/s[0-7]//'`
+else
+   BOOT_DISK=`ls -l /dev/dsk | grep "$BOOTPATH" 2>/dev/null | \
+   awk '{print $9}' | sed 's/s[0-7]//'`
+fi
+
+if [ -n "$BOOT_DISK" ] ; then
+   echo "Your boot disk is ${BOOT_DISK}."
+else
+   echo "Unable to determine logical boot disk."
+fi

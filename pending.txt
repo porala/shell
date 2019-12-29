@@ -1,0 +1,11 @@
+echo | awk '{ print substr("'"${new}"'",3,4)}'
+
+
+read name
+num=${#name}
+letter=1
+for letter in $num
+do
+echo | awk '{ print substr("'"$name}"'",$num,1}'
+letter =+ 1
+done

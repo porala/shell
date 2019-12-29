@@ -1,0 +1,22 @@
+#!/bin/bash
+#Convert file name extension
+
+#original extension is .pdf
+
+SUFFIX=sh # New filename suffix.
+if [ -n "$1" ]
+then
+directory=$1 # If directory name given as a script argument...
+else
+directory=$PWD # Otherwise use current working directory.
+fi
+# Assumes all files in the target directory are MacPaint image files,
+# + with a ".mac" suffix.
+for file in $directory/* 
+do
+filename=${file%.*d} 
+cp $file > $filename.$SUFFIX
+rm -f $file 
+echo "$filename.$SUFFIX" 
+done
+exit 0

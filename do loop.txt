@@ -1,0 +1,49 @@
+#!/bin/sh
+# Execute ls and wc on each of several files
+# File names listed explicitly
+for filename in simple.sh variables.sh loop1.sh
+do
+echo "Variable filename is set to $filename..."
+ls -l $filename
+wc -l $filename
+done
+
+
+
+for filename in *.sh
+do
+echo "Variable filename is set to $filename..."
+ls -l $filename
+wc -l $filename
+done
+
+
+
+
+
+#!/bin/sh
+# Store the following in a file named args2.sh and execute it
+# Loop over the command-line arguments
+# Execute with
+# sh args2.sh simple.sh variables.sh
+for filename in "$@"
+do
+echo "Examining file $filename"
+wc -l $filename
+done
+
+
+
+
+#!/bin/sh
+# Use an if block to determine if a command succeeded
+echo "This mkdir command fails unless you are root:"
+mkdir /no_way
+if [ "$?" -ne 0 ]
+then
+# Complain and quit
+#Store the following in a file named exit-status-test.sh and execute it
+echo "Could not create directory /no_way...quitting"
+exit 1 # Set script's exit status to 1
+fi
+echo "Created directory /no_way"

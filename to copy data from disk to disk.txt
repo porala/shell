@@ -1,0 +1,28 @@
+#!/bin/ksh
+#
+# Mount the c0t1d0 partitions so we can do the ufsdump...
+cd /
+mount /dev/dsk/c0t1d0s0 /mnt
+mount /dev/dsk/c0t1d0s5 /var1
+echo
+echo "c0t1d0 partitions are mounted"
+echo
+# Begin the ufsdump sequence...
+echo
+echo "Starting copy of disk c0t0d0 to c0t1d0 at `date`."
+echo
+echo "Doing root partition first... mount point used is /mnt"
+echo
+cd /
+ufsdump 0f - /dev/rdsk/c0t0d0s0 | (cd /mnt ; ufsrestore xf -)
+echo
+echo "...root partition done."
+echo
+echo "Doing var partition... mount point used is /var1"
+echo
+ufsdump 0f - /dev/rdsk/c0t0d0s5 | (cd /var1 ; ufsrestore xf -)
+echo
+echo "...var partition done."
+echo
+echo "Disk copy complete at `date`."
+echo

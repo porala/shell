@@ -1,0 +1,48 @@
+#!/bin/sh
+# An example with the case statement
+# Reads a command from the user and processes it
+echo "Enter your command (who, list, or cal)"
+read command
+case "$command" in
+who)
+echo "Running who..."
+who
+;;
+list)
+echo "Running ls..."
+ls
+;;
+cal)
+echo "Running cal..."
+cal
+;;
+*)
+echo "Bad command, your choices are: who, list, or cal"
+;;
+esac
+exit 0
+
+
+# Execute with one of
+# sh case2.sh who
+# sh case2.sh ls
+# sh case2.sh cal
+echo "Took command from the argument list: '$1'"
+case "$1" in
+who)
+echo "Running who..."
+who
+;;
+list)
+echo "Running ls..."
+ls
+;;
+cal)
+echo "Running cal..."
+cal
+;;
+*)
+echo "Bad command, your choices are: who, list, or cal"
+;;
+esac
+exit 0

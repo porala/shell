@@ -1,0 +1,10 @@
+#Beggining of script
+#--------------------------------------
+# Lets say you want to remove an old backup on autobackups folder
+rm /autobackups/mybackup*.*
+# Now lets say you want to make the script sleep for 3 seconds
+sleep 3
+
+#Now you want to backup /home entirely into /autobackups using tar
+
+tar -cvf /autobackups/home$(date +%y%m%d).tar /home

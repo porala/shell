@@ -1,0 +1,6 @@
+#!/bin/bash
+echo_it () {
+echo "Argument 1 is $1"
+echo "Argument 2 is $2"
+}
+echo_it arg1 arg2

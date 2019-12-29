@@ -1,0 +1,10 @@
+case `date |cut -d" " -f1` in
+   Mon) commands ;;
+   Tue) commands ;;
+   Wed) commands ;;
+   Wed) commands ;;
+   Thu) commands ;;
+   Fri) commands ;;
+   Sat) commands ;;
+   Sun) commands ;;
+esac

@@ -1,0 +1,1 @@
+ls -al | awk '{sum = sum + $5} END {print sum}'

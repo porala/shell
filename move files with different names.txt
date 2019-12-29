@@ -1,0 +1,6 @@
+j=1
+for i in *.log
+do
+mv $i $i.$j
+j=`expr $j + 1`
+done

@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "Date and Time/"
+date
+echo"/List of logged in users/"
+who
+echo "/server uptime: `uptime`

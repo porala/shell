@@ -1,0 +1,8 @@
+a=rhino
+b=crocodile
+if [ "$a" = rhino ] && [ "$b" = crocodile ]
+then
+echo "Test #5 succeeds."
+else
+echo "Test #5 fails."
+fi

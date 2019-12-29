@@ -1,0 +1,21 @@
+#!/bin/sh
+# Execute with
+#
+# sh getopts1.sh -h -Pxerox file1 file2
+#
+# and notice how the information on all the options is displayed
+#
+# The string 'P:h' says that the option -P is a complex option
+# requiring an argument, and that h is a simple option not requiring
+# an argument.
+#
+# Experiment with getopts command
+while getopts 'P:h' OPT_LETTER
+do
+echo "getopts has set variable OPT_LETTER to '$OPT_LETTER'"
+echo " OPTARG is '$OPTARG'"
+done
+used_up=`expr $OPTIND - 1`
+echo "Shifting away the first \$OPTIND-1 = $used_up command-line arguments"
+shift $used_up
+echo "Remaining command-line arguments are '$*'"

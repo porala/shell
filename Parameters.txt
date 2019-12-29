@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "Number of Parameters: $#"
+echo "Name of the file: $0"
+echo "Values of parameters: $*"
+echo "process ID of the current shell: $$"
+echo "Exit status of the last command: $?"
